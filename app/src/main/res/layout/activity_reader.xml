@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_reader"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/reader_defult"
+    tools:context="lol.chendong.funnovel.ui.ReaderActivity">
+
+    <lol.chendong.funnovel.view.SwipScrollView
+        android:id="@+id/text_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+            <!--文章主体-->
+            <lol.chendong.funnovel.view.ReaderTextView
+                android:id="@+id/text_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="start"
+                android:background="@null"
+                android:paddingTop="20dp"
+                android:layout_margin="6dp"
+                android:lineSpacingMultiplier="1.5"
+                android:keepScreenOn="true"
+                android:textColor="#303030"
+                android:textSize="20sp" />
+
+
+    </lol.chendong.funnovel.view.SwipScrollView>
+
+    <RelativeLayout
+        android:layoutAnimation="@anim/pop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/b1"
+                android:gravity="center"
+                android:src="@drawable/ic_reader_catalog"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                />
+
+
+            <ImageView
+                android:id="@+id/b2"
+                android:padding="9dp"
+                android:gravity="center"
+                android:src="@drawable/ic_reader_like"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                  />
+
+
+            <ImageView
+                android:id="@+id/b3"
+                android:paddingTop="12.5dp"
+                android:paddingBottom="8dp"
+                android:gravity="center"
+                android:src="@drawable/ic_reader_type"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                  />
+
+            <ImageView
+                android:id="@+id/b4"
+                android:padding="8dp"
+                android:gravity="center"
+                android:src="@drawable/ic_reader_more"
+                android:layout_width="10dp"
+                android:onClick="popupmenu"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                  />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

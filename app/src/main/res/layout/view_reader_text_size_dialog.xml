@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reader_dialog_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <!--亮度大小设置-->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:paddingTop="5dp">
+
+
+        <ImageView
+            android:id="@+id/reader_img_light_low"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center|start"
+            android:src="@drawable/ic_reader_light_low" />
+
+        <SeekBar
+            android:id="@+id/reader_light_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="4"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/reader_img_light_high"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center|start"
+            android:src="@drawable/ic_reader_light_high" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/reader_light_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:text="使用系统亮度"
+            android:textSize="18sp" />
+
+
+        <Switch
+            android:id="@+id/reader_light_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <Button
+            android:id="@+id/reader_color_default"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="默认" />
+
+
+        <Button
+            android:id="@+id/reader_color_eye"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="护眼" />
+
+        <Button
+            android:id="@+id/reader_color_pink"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="淡雅" />
+
+        <Button
+            android:id="@+id/reader_color_light"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="夜间" />
+
+
+    </LinearLayout>
+
+
+    <!--字体大小设置-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+
+            android:id="@+id/reader_size_img_lass"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:gravity="center|start"
+            android:src="@drawable/ic_reader_size_lass" />
+
+        <SeekBar
+            android:id="@+id/reader_size_seekbar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_weight="4"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/reader_size_img_add"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:gravity="center|start"
+            android:src="@drawable/ic_reader_size_add" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <Button
+            android:id="@+id/reader_typeface_default"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="默认字体" />
+
+
+        <Button
+            android:id="@+id/reader_typeface_song"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="方正仿宋" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

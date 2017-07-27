@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cfd8dc</color>
+    <color name="colorPrimaryDark">#cfd8dc</color>
+    <color name="colorAccent">#009688</color>
+
+    <color name="black_overlay">#98000000</color>
+    <color name="white">#ffffff</color>
+    <color name="catalog_text">#d8292929</color>
+
+    <!--reader style-->
+    <color name="reader_pink">#cce8cfcd</color>
+    <color name="reader_eye_1"> #C7EDCC</color>
+    <color name="reader_defult">#d8ffffff</color>
+    <color name="reader_balck">#1a1a1a</color>
+    <!--reader dialog style-->
+    <color name="reader_dialog_balck">#1e1e1e</color>
+
+
+
+    <!--reader style-->
+    <color name="reader_text_defult">#d8a1a1a1</color>
+    <color name="reader_text_balck">#1e1e1e</color>
+    <color name="reader_icon_defult" >#edffffff</color>
+    <color name="reader_catalog_text_present">#e98b2e</color>
+    <color name="reader_catalog_text_defult">#d8292929</color>
+
+
+
+</resources>

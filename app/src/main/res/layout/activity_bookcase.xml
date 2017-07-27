@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="lol.chendong.funnovel.ui.BookcaseActivity">
+
+    <LinearLayout
+        android:id="@+id/bookcase_latebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="上次阅读" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:elevation="5dp">
+
+
+            <ImageView
+                android:id="@+id/bookcase_poster_img"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_centerVertical="true" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/bookcase_poster_img"
+                android:layout_marginStart="12dp"
+                android:layout_toEndOf="@+id/bookcase_poster_img"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/bookcase_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="3dp"
+
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/bookcase_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/bookcase_updataTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/bookcase_describe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:paddingBottom="6dp"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="我的收藏" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bookcase_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="你还没有添加收藏任何书籍哟~\n   赶快去发现自己喜欢书吧(•̀ᴗ•́)و ̑̑" />
+
+
+</LinearLayout>

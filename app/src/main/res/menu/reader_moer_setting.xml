@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_reader_catalog"
+        android:orderInCategory="100"
+        android:title="本书详情"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_reader_bookcase"
+        android:orderInCategory="100"
+        android:title="前往书架"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_reader_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>

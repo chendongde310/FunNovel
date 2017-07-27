@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        applicationId "lol.chendong.funnovel"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':noveldata')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:support-v13:25.3.1'
+    compile 'com.afollestad.material-dialogs:core:0.8.5.9'
+    //对话框
+    compile 'com.azoft.carousellayoutmanager:carousel:1.2.1'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'com.alibaba:fastjson:1.2.24'
+}
