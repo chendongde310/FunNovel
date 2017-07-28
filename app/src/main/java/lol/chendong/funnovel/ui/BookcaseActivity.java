@@ -21,7 +21,7 @@ import lol.chendong.funnovel.ReadHelper;
 import lol.chendong.funnovel.adapter.BookcaseAdapter;
 import lol.chendong.funnovel.bean.BookcaseBean;
 import lol.chendong.funnovel.bean.ReadBean;
-import lol.chendong.funnovel.data.BookcaseData;
+import lol.chendong.funnovel.data.BookcaseHelper;
 
 /**
  * ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
@@ -40,11 +40,12 @@ public class BookcaseActivity extends BaseActivity {
     private android.widget.TextView mBookcaseupdataTime;
     private android.widget.TextView mBookcasedescribe;
     private RecyclerView mBookcaseRV;
-    private List<BookcaseBean> bookcases;
+
     private BookcaseAdapter adapter;
     private ReadBean readBean;
     private LinearLayout linearLayout;
     private int line = 3;
+    private List<BookcaseBean> bookcases = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class BookcaseActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        bookcases = new ArrayList<>();
+
     }
 
     @Override
@@ -74,11 +75,10 @@ public class BookcaseActivity extends BaseActivity {
         mBookcaseRV.addOnScrollListener(new CenterScrollListener());
 
 
-
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadHelper.create().read(BookcaseActivity.this,readBean);
+                ReadHelper.create().read(BookcaseActivity.this, readBean);
             }
         });
 
@@ -86,7 +86,7 @@ public class BookcaseActivity extends BaseActivity {
 
 
     private void setLateBookData() {
-        readBean = BookcaseData.create(this).getLateBook();
+        readBean = BookcaseHelper.BookCase().getLateBook();
         if (readBean != null) {
             linearLayout.setVisibility(View.VISIBLE);
             Glide.with(this).load(readBean.getDetailsBean().getImgUrl()).into(mBookcaseposterimg);
@@ -99,13 +99,13 @@ public class BookcaseActivity extends BaseActivity {
         }
     }
 
-    private void setAdapterListener(){
+    private void setAdapterListener() {
         adapter.setOnItemClickListener(new BookcaseAdapter.onItemClickListener() {
             @Override
             public void onItemClick(View view, int postion) {
                 if (postion != bookcases.size()) {
                     if (bookcases.get(postion).getDetailsBean().getChapterList().size() > bookcases.get(postion).getPiont()) {
-                        ReadHelper.create().read(BookcaseActivity.this,bookcases.get(postion));
+                        ReadHelper.create().read(BookcaseActivity.this, bookcases.get(postion));
                     } else {
                         Toast.makeText(BookcaseActivity.this, "跳转到目录页", Toast.LENGTH_SHORT).show();
                         jumpCatalog(postion);
@@ -120,12 +120,12 @@ public class BookcaseActivity extends BaseActivity {
         adapter.setOnItemLongClickListener(new BookcaseAdapter.onItemLongClickListener() {
             @Override
             public void onItemLongClick(View view, int postion) {
-                BookcaseData.create(BookcaseActivity.this).remove(bookcases.get(postion));
+                BookcaseHelper.BookCase().remove(bookcases.get(postion));
                 bookcases.remove(postion);
                 adapter.notifyDataSetChanged();
-                if(bookcases.size() > 0) {
+                if (bookcases.size() > 0) {
                     mBookcaseRV.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     mBookcaseRV.setVisibility(View.GONE);
                 }
 
@@ -136,12 +136,12 @@ public class BookcaseActivity extends BaseActivity {
 
     private void setBookcaseList() {
         bookcases.clear();
-        bookcases.addAll(BookcaseData.create(this).getBookcases());
+        bookcases.addAll(BookcaseHelper.BookCase().list());
         if (bookcases.size() > 0) {
             mBookcaseRV.setVisibility(View.VISIBLE);
             mBookcaseRV.setLayoutManager(new StaggeredGridLayoutManager(line, StaggeredGridLayoutManager.VERTICAL));
             if (adapter == null) {
-                adapter = new BookcaseAdapter(BookcaseActivity.this, bookcases);
+                adapter = new BookcaseAdapter(BookcaseActivity.this);
                 mBookcaseRV.setAdapter(adapter);
                 setAdapterListener();
             } else {
@@ -165,7 +165,7 @@ public class BookcaseActivity extends BaseActivity {
     }
 
     private void jumpCatalog(int postion) {
-        ReadHelper.create().catalog(BookcaseActivity.this,bookcases.get(postion));
+        ReadHelper.create().catalog(BookcaseActivity.this, bookcases.get(postion));
     }
 
 

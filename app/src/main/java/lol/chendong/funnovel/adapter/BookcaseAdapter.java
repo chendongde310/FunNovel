@@ -10,10 +10,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lol.chendong.funnovel.R;
 import lol.chendong.funnovel.bean.BookcaseBean;
+import lol.chendong.funnovel.data.BookcaseHelper;
 
 /**
  * 作者：陈东  —  www.renwey.com
@@ -23,13 +25,13 @@ import lol.chendong.funnovel.bean.BookcaseBean;
 public class BookcaseAdapter extends RecyclerView.Adapter<BookcaseAdapter.BookcaseViewHolder> {
 
     private Context context;
-    private List<BookcaseBean> bookcaseBeens;
+    private List<BookcaseBean> bookcaseBeens = new ArrayList<>();
     private onItemClickListener mItemClickListener;
     private onItemLongClickListener mItemLongClickListener;
 
-    public BookcaseAdapter(Context context, List<BookcaseBean> bookcaseBeens) {
+    public BookcaseAdapter(Context context) {
         this.context = context;
-        this.bookcaseBeens = bookcaseBeens;
+        this.bookcaseBeens .addAll(BookcaseHelper.BookCase().list()) ;
     }
 
 

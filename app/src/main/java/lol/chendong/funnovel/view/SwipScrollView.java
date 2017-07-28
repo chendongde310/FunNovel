@@ -55,6 +55,9 @@ public class SwipScrollView extends ScrollView {
         }
     }
 
+
+
+
     public void setScrollToBottomEnabled(boolean isSrollToBottom) {
         this.isSrollToBottom = isSrollToBottom;
     }

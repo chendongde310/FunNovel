@@ -11,26 +11,25 @@
 
 
     <RelativeLayout
-        android:elevation="5dp"
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:elevation="5dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="18sp"
+            android:text="图书详情"
             android:textColor="@color/reader_text_balck"
-            android:text="图书详情" />
-
+            android:textSize="18sp" />
 
 
         <ImageView
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
             android:background="#d7d7d7" />
 
 
@@ -46,7 +45,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="wrap_content"
             android:layout_margin="13dp">
 
 
@@ -74,7 +73,7 @@
                     android:layout_marginTop="7dp"
                     android:paddingBottom="14dp"
                     android:textColor="@color/reader_text_balck"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/catalog_author"
@@ -83,9 +82,7 @@
                     android:maxLines="1"
                     android:paddingBottom="5dp"
                     android:textColor="@color/catalog_text"
-                    android:textSize="16sp" />
-
-
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -95,7 +92,7 @@
                     android:maxLines="1"
                     android:paddingBottom="5dp"
                     android:textColor="@color/catalog_text"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -104,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:textColor="#f1007ce7"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -112,55 +109,122 @@
         </RelativeLayout>
 
 
-
-       <LinearLayout
-             android:layout_margin="15dp"
-           android:orientation="horizontal"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-
-
-           <ImageView
-               android:id="@+id/catalog_addCollect"
-               android:padding="10dp"
-               android:layout_weight="1"
-               android:src="@drawable/ic_heart"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
 
 
-           <ImageView
-               android:id="@+id/catalog_showCatalog"
-               android:padding="10dp"
-               android:layout_weight="1"
-               android:src="@drawable/ic_category"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp">
 
-           <ImageView
-               android:id="@+id/catalog_addComment"
-               android:padding="10dp"
-               android:layout_weight="1"
-               android:src="@drawable/ic_comment"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/catalog_addCollect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_heart" />
 
 
-       </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/catalog_addCollect"
+                    android:layout_centerHorizontal="true"
+                    android:text="收藏"
+                    android:textSize="10sp" />
+
+            </RelativeLayout>
 
 
+            <RelativeLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/catalog_showCatalog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_category" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/catalog_showCatalog"
+                    android:layout_centerHorizontal="true"
+                    android:text="目录"
+                    android:textSize="10sp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/catalog_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_share" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/catalog_share"
+                    android:layout_centerHorizontal="true"
+                    android:text="分享"
+                    android:textSize="10sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/catalog_addComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_comment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/catalog_addComment"
+                    android:layout_centerHorizontal="true"
+                    android:text="评论"
+                    android:textSize="10sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
 
         <TextView
             android:id="@+id/catalog_describe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:ellipsize="end"
             android:maxLines="4"
             android:textColor="@color/reader_text_defult"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="13dp"
             android:textSize="14sp" />
 
 
@@ -170,13 +234,12 @@
             android:background="#f9f9f9" />
 
 
-
         <TextView
-            android:layout_gravity="center"
-            android:text="暂无评论(ง •̀_•́)ง"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="暂无评论(ง •̀_•́)ง" />
 
     </LinearLayout>
 </RelativeLayout>

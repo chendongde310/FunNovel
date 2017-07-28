@@ -18,9 +18,10 @@ import lol.chendong.funnovel.BaseActivity;
 import lol.chendong.funnovel.R;
 import lol.chendong.funnovel.ReadHelper;
 import lol.chendong.funnovel.adapter.ReadChapterAdapter;
+import lol.chendong.funnovel.bean.BookcaseBean;
 import lol.chendong.funnovel.bean.CatalogBean;
 import lol.chendong.funnovel.constant.Constant;
-import lol.chendong.funnovel.data.BookcaseData;
+import lol.chendong.funnovel.data.BookcaseHelper;
 import lol.chendong.noveldata.bean.NovelDetailsBean;
 
 public class CatalogActivity extends BaseActivity implements View.OnClickListener {
@@ -60,6 +61,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
         catalogauthor.setText(String.format("作者：%s", novelDetailsBean.getAuthor()));
         catalogtitle.setText(novelDetailsBean.getName());
         catalognewChapter.setText(novelDetailsBean.getNewChapter());
+
     }
 
     @Override
@@ -77,6 +79,10 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
         this.catalogaddCollect = (ImageView) findViewById(R.id.catalog_addCollect);
         setData();
 
+        if (BookcaseHelper.BookCase().isContains(novelDetailsBean.getCatalogUrl())) {
+            catalogaddCollect.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_heart_red));
+        }
+
     }
 
     @Override
@@ -92,12 +98,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
      */
     private void addCollect() {
         catalogaddCollect.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_heart_red));
-        if (BookcaseData.create(this).putBookcases(catalogBean)) {
-            //成功
-
-        } else {
-            //失败
-        }
+        BookcaseHelper.BookCase().putBookcases(new BookcaseBean(catalogBean.getDetailsBean(), catalogBean.getPiont()), this);
     }
 
     @Override
@@ -113,7 +114,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
                 addComment();
                 break;
             case R.id.catalog_newChapter:
-                ReadHelper.create().read(CatalogActivity.this, catalogBean.getDetailsBean(), catalogBean.getDetailsBean().getChapterList().size()-1);
+                ReadHelper.create().read(CatalogActivity.this, catalogBean.getDetailsBean(), catalogBean.getDetailsBean().getChapterList().size() - 1);
                 break;
 
         }
@@ -130,12 +131,9 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
      * 显示目录
      */
     private void showCatalog() {
-
         if (mDialog != null && mDialog.isShowing()) {
             return;
         }
-
-
         mDialog = new AlertDialog.Builder(this).create();
         mDialog.show();
         Window window = mDialog.getWindow();

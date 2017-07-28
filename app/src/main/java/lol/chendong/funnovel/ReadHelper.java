@@ -10,8 +10,9 @@ import lol.chendong.funnovel.bean.BookcaseBean;
 import lol.chendong.funnovel.bean.CatalogBean;
 import lol.chendong.funnovel.bean.ReadBean;
 import lol.chendong.funnovel.constant.Constant;
-import lol.chendong.funnovel.ui.BookcaseActivity;
 import lol.chendong.funnovel.ui.CatalogActivity;
+import lol.chendong.funnovel.ui.FristActivity;
+import lol.chendong.funnovel.ui.MainActivity;
 import lol.chendong.funnovel.ui.ReaderActivity;
 import lol.chendong.funnovel.ui.SearchActivity;
 import lol.chendong.noveldata.CatalogData;
@@ -240,7 +241,7 @@ public class ReadHelper {
      * @param
      */
     public void bookcase(Context context) {
-        Intent intent = new Intent(context, BookcaseActivity.class);
+        Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
     }
 

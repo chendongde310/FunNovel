@@ -26,7 +26,7 @@ import lol.chendong.funnovel.ReadHelper;
 import lol.chendong.funnovel.adapter.ReadChapterAdapter;
 import lol.chendong.funnovel.bean.ReadBean;
 import lol.chendong.funnovel.constant.Constant;
-import lol.chendong.funnovel.data.BookcaseData;
+import lol.chendong.funnovel.data.BookcaseHelper;
 import lol.chendong.funnovel.view.ReaderTextView;
 import lol.chendong.funnovel.view.SwipScrollView;
 import lol.chendong.noveldata.ContentData;
@@ -87,7 +87,7 @@ public class ReaderActivity extends BaseActivity {
         shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
         readBean = getIntent().getParcelableExtra(Constant.INTENT_CONTENT);
-        BookcaseData.create(this).putLateBook(readBean);
+        BookcaseHelper.BookCase().putLateBook(readBean);
         addDataObserver = new Observer<NovelContentBean>() {
             @Override
             public void onCompleted() {
@@ -102,13 +102,13 @@ public class ReaderActivity extends BaseActivity {
 
             @Override
             public void onNext(NovelContentBean novelContentBean) {
-                if(novelContentBean!=null&&!readBean.getContent().getCurrentUrl().equals(novelContentBean.getCurrentUrl())) {
+                if (novelContentBean != null && !readBean.getContent().getCurrentUrl().equals(novelContentBean.getCurrentUrl())) {
                     readBean.setPiont(readBean.getPiont() + 1);
-                    BookcaseData.create(ReaderActivity.this).putLateBook(readBean);
+                    BookcaseHelper.BookCase().putLateBook(readBean);
                     readBean.setContent(novelContentBean);
                     mContentView.addContent(readBean.getContent().getTitle(), readBean.getContent().getContent());
                     Toast.makeText(ReaderActivity.this, "已为您加载下一章ヽ(･ω･｡)ﾉ", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     Toast.makeText(ReaderActivity.this, "没有更多内容啦！先看看其他的吧(-`ω´-) ", Toast.LENGTH_SHORT).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -134,7 +134,7 @@ public class ReaderActivity extends BaseActivity {
             public void onNext(NovelContentBean novelContentBean) {
                 readBean.setPiont(readBean.getPiont() + 1);
                 readBean.setContent(novelContentBean);
-                BookcaseData.create(ReaderActivity.this).putLateBook(readBean);
+                BookcaseHelper.BookCase().putLateBook(readBean);
                 mContentView.setContent(readBean.getContent().getTitle(), readBean.getContent().getContent());
                 mScrollView.scrollTo(0, 0);
                 if (mDialog != null && mDialog.isShowing()) {
@@ -237,7 +237,7 @@ public class ReaderActivity extends BaseActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_reader_catalog:
-                        ReadHelper.create().catalog(ReaderActivity.this,readBean);
+                        ReadHelper.create().catalog(ReaderActivity.this, readBean);
                         break;
                     case R.id.action_reader_bookcase:
                         ReadHelper.create().bookcase(ReaderActivity.this);
@@ -255,7 +255,7 @@ public class ReaderActivity extends BaseActivity {
      * 添加到书架（收藏）
      */
     private void addCollect() {
-        if (BookcaseData.create(ReaderActivity.this).putBookcases(readBean)) {
+        if (BookcaseHelper.BookCase().putBookcases(readBean)) {
             //成功
             mButtonCollect.startAnimation(rotateAnimation);
         } else {
@@ -305,7 +305,7 @@ public class ReaderActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        BookcaseData.create(ReaderActivity.this).putLateBook(readBean);
+        BookcaseHelper.BookCase().putLateBook(readBean);
     }
 
     public void popupmenu(View v) {

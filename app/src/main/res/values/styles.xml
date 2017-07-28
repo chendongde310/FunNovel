@@ -37,7 +37,7 @@
     </style>
 
     <!--背景色-->
-    <style name="ReaderTheme"  parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="ReaderTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
         <item name="colorPrimary">@color/primary_material_dark</item>
     </style>

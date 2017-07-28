@@ -10,12 +10,15 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FristActivity" android:theme="@style/AppTheme.NoTitleBar.CustomBackground"  >
+        <activity
+            android:name=".ui.FristActivity"
+            android:theme="@style/AppTheme.NoTitleBar.CustomBackground">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,6 +38,10 @@
             android:name=".ui.CatalogActivity"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".ui.SearchActivity" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

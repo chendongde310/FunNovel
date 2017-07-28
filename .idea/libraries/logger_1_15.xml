@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="logger-1.15">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/780674de57f29ba208ffa21282c71892dcd980a2/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/780674de57f29ba208ffa21282c71892dcd980a2/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/1b15dc28526b21856c906b7bf2371e3e09a754c2/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/1b15dc28526b21856c906b7bf2371e3e09a754c2/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

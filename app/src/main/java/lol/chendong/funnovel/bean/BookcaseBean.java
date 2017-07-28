@@ -56,6 +56,12 @@ public class BookcaseBean implements Parcelable {
     public BookcaseBean() {
     }
 
+
+    public BookcaseBean(NovelDetailsBean detailsBean, int piont) {
+        this.detailsBean = detailsBean;
+        this.piont = piont;
+    }
+
     protected BookcaseBean(Parcel in) {
         this.detailsBean = in.readParcelable(NovelDetailsBean.class.getClassLoader());
         this.piont = in.readInt();

@@ -3,102 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\a0d62d14d33d4ab614cba8427fb738a1cb2875d7\output\jars\classes.jar"
+        jar="/Users/chen/myApp/FunReader/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="04d4337de6ccd7e57aec621f41ee747976fca7d8">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d73478d5c3a988b11238e9a02f6329b15e8385c1\classes.dex" />
+        sha1="4d2ce592411debf36be0b78f40598e3de766e300">
+        <dex dex="/Users/chen/myApp/FunReader/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_460558652aac9aed1fa9e4343f1813f07c468ce9/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\73a0807de8d3ecdd9d701d498f6e16746c5ca4c8\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5a2386ad9bfff580b206a7fe305cdccd00798159">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8422b99b748fdeba868a8da387c37d069e961840\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.jsoup\jsoup\1.10.1\645f1ad2f6f4cbad1cde4c483eae71e4051be6ef\jsoup-1.10.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="645f1ad2f6f4cbad1cde4c483eae71e4051be6ef">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsoup-1.10.1_2a86fbfc876000034a1d2d14504e24f8dc81a9df\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\e19d4a914605c6c109b38caf00bfd3e45da8ac94\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a9f97c742d058ca55948643c06f447895a9af76">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3f3f56b84db9324b6df6f01fbc004fd59fc74701\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\workspace\FunNovel\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/chen/myApp/FunReader/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3b188fb8405dbf2c3177f18be61b04f589d0ee80\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\13ddeb4c7405860d4a324801d71ca1cee0c33b66\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="df451c6f391e3e32022fc964ed87bd57a5869128">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3c928ef0ff1d902c81384c688286b0d0e83e1003\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.4\522cfb00b6c015b72c64ee60054b4f6338880858\rxjava-1.2.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="522cfb00b6c015b72c64ee60054b4f6338880858">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.2.4_4a3af44267dd2e220f019c8de5599a84d6fd0427\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\workspace\FunNovel\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1fc875042033f5fa26c78bb4ce83fa80333f78bd">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d8b2edf3c7fa4ad2aa32d72c7cc898cc995e6523\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.alibaba\fastjson\1.2.24\a2b82688715ee16d874d90229d204daf3efcac8e\fastjson-1.2.24.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a2b82688715ee16d874d90229d204daf3efcac8e">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\fastjson-1.2.24_cfe92b15f4f970711fb42103519cb68a99fffc4a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\872f3788dead8a939b544911cf616367e42bb21a\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="139c98ccc56f2e79729e8e83c96a583788b3f88e">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_99db766c55dcd9bf46baeeaff40328240df1b858\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_77bbafad21bc1ac169e6a221a15373f3eab9dd96\classes.dex" />
+        <dex dex="/Users/chen/myApp/FunReader/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_9826eece24b2bb8b68744dcee3cbe4e445ac7034/classes.dex" />
     </item>
 
 </items>
