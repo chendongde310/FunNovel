@@ -141,7 +141,7 @@ public class BookcaseActivity extends BaseActivity {
             mBookcaseRV.setVisibility(View.VISIBLE);
             mBookcaseRV.setLayoutManager(new StaggeredGridLayoutManager(line, StaggeredGridLayoutManager.VERTICAL));
             if (adapter == null) {
-                adapter = new BookcaseAdapter(BookcaseActivity.this);
+                adapter = new BookcaseAdapter(BookcaseActivity.this, bookcases);
                 mBookcaseRV.setAdapter(adapter);
                 setAdapterListener();
             } else {

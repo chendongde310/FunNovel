@@ -10,12 +10,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lol.chendong.funnovel.R;
 import lol.chendong.funnovel.bean.BookcaseBean;
-import lol.chendong.funnovel.data.BookcaseHelper;
 
 /**
  * 作者：陈东  —  www.renwey.com
@@ -25,13 +23,13 @@ import lol.chendong.funnovel.data.BookcaseHelper;
 public class BookcaseAdapter extends RecyclerView.Adapter<BookcaseAdapter.BookcaseViewHolder> {
 
     private Context context;
-    private List<BookcaseBean> bookcaseBeens = new ArrayList<>();
+    private List<BookcaseBean> bookcaseBeens;
     private onItemClickListener mItemClickListener;
     private onItemLongClickListener mItemLongClickListener;
 
-    public BookcaseAdapter(Context context) {
+    public BookcaseAdapter(Context context, List<BookcaseBean> bookcases) {
         this.context = context;
-        this.bookcaseBeens .addAll(BookcaseHelper.BookCase().list()) ;
+        this.bookcaseBeens = bookcases;
     }
 
 
@@ -45,10 +43,10 @@ public class BookcaseAdapter extends RecyclerView.Adapter<BookcaseAdapter.Bookca
 
     @Override
     public void onBindViewHolder(BookcaseViewHolder holder, int position) {
-        if(position != bookcaseBeens.size()){
+        if (position != bookcaseBeens.size()) {
             BookcaseBean data = bookcaseBeens.get(position);
             holder.mBookcaseName.setText(data.getDetailsBean().getName());
-            Glide.with(context).load(data.getDetailsBean().getImgUrl()).into(holder.mBookcaseImg);
+            Glide.with(context).load(data.getDetailsBean().getImgUrl()).centerCrop().into(holder.mBookcaseImg);
         }
     }
 

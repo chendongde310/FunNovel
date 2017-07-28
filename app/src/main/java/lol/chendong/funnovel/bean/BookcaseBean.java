@@ -27,7 +27,7 @@ public class BookcaseBean implements Parcelable {
     }
 
     public int getPiont() {
-        return piont<0?0:piont;
+        return piont;//<0?0:piont;
     }
 
     public void setPiont(int piont) {

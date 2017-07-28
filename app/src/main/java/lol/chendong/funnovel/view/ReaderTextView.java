@@ -88,7 +88,7 @@ public class ReaderTextView extends TextView {
         SharedPreferences sp = context.getSharedPreferences(readerSPName, Context.MODE_PRIVATE);
         isSystemBrightness = sp.getBoolean(IsSystemBrightness, true);
         readerBrightnessProgress = sp.getInt(ReaderBrightness, 50);
-        readerTextSizeProgress = sp.getInt(ReaderTextSize, 50);
+        readerTextSizeProgress = sp.getInt(ReaderTextSize, 60);
         readerTypeFace = sp.getString(ReaderTypeFace, TYPEFACE_SONG);
         readerStyleInt = sp.getInt(ReaderStyleInt, R.color.reader_defult);
         setReaderBrightnessProgress(readerBrightnessProgress);

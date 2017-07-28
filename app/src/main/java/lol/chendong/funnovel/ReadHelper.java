@@ -1,5 +1,6 @@
 package lol.chendong.funnovel;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -35,7 +36,7 @@ import rx.Subscriber;
  */
 public class ReadHelper {
     private static ReadHelper reader;
-
+    Activity readerActivity;
     private NovelContentBean novelContentBean; //
 
     private ReadHelper() {
@@ -48,7 +49,6 @@ public class ReadHelper {
         }
         return reader;
     }
-
 
     /**
      * 读书了！
@@ -73,7 +73,6 @@ public class ReadHelper {
         intent.putExtra(Constant.INTENT_CONTENT, readBean);
         context.startActivity(intent);
     }
-
 
     /**
      * 书架过来
@@ -177,6 +176,7 @@ public class ReadHelper {
      * 前往详情（目录）
      */
     public void catalog(Context context, CatalogBean catalogBean) {
+
         Intent intent = new Intent(context, CatalogActivity.class);
         intent.putExtra(Constant.INTENT_CATALOG, catalogBean);
         context.startActivity(intent);
@@ -271,6 +271,15 @@ public class ReadHelper {
 
     public void catalog(Context context, NovelSearchBean novelSearchBean) {
         catalog(context, novelSearchBean.getCatalogUrl());
+    }
+
+
+    public void re(Activity activity) {
+        if (this.readerActivity != null) {
+            this.readerActivity.finish();
+        }
+
+        this.readerActivity = activity;
     }
 
 

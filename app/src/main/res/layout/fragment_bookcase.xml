@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="lol.chendong.funnovel.ui.BookcaseFragment">
+
+
+    <TextView
+        android:id="@+id/late_book"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/reader_catalog_text_present"
+        android:gravity="start|center"
+        android:paddingEnd="13dp"
+        android:paddingStart="13dp"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bookcase_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:visibility="visible" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="你还没有添加收藏任何书籍哟~\n   赶快去发现自己喜欢书吧(•̀ᴗ•́)و ̑̑" />
+
+</LinearLayout>

@@ -26,6 +26,7 @@ import lol.chendong.noveldata.bean.NovelDetailsBean;
 
 public class CatalogActivity extends BaseActivity implements View.OnClickListener {
 
+    ReadChapterAdapter catalogAdapter;
     private android.widget.ImageView catalogposterimg;
     private android.widget.TextView catalogtitle;
     private android.widget.TextView catalogauthor;
@@ -34,7 +35,6 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
     private CatalogBean catalogBean;
     private NovelDetailsBean novelDetailsBean;
     private TextView catalognewChapter;
-
     private ImageView catalogaddCollect;
     private ImageView catalogshowCatalog;
     private ImageView catalogaddComment;
@@ -99,6 +99,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
     private void addCollect() {
         catalogaddCollect.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_heart_red));
         BookcaseHelper.BookCase().putBookcases(new BookcaseBean(catalogBean.getDetailsBean(), catalogBean.getPiont()), this);
+
     }
 
     @Override
@@ -131,30 +132,34 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
      * 显示目录
      */
     private void showCatalog() {
-        if (mDialog != null && mDialog.isShowing()) {
-            return;
+
+        if (mDialog == null) {
+            mDialog = new AlertDialog.Builder(this).create();
+            mDialog.show();
+            Window window = mDialog.getWindow();
+            window.setWindowAnimations(R.style.PopupAnimation);
+            View view = View.inflate(this, R.layout.view_reader_catalog_dialog, null);
+            mDialog.setContentView(view);
+            window = mDialog.getWindow();
+            window.setGravity(Gravity.BOTTOM);
+            window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);//设置横向全屏
+            mDialog.setCanceledOnTouchOutside(true);
+            mDialog.setCancelable(true);
+            final ListView catalogList = (ListView) mDialog.findViewById(R.id.reader_catalog_list_rv);
+            catalogAdapter = new ReadChapterAdapter(this, catalogBean.getPiont(), catalogBean.getDetailsBean().getChapterList(), catalogBean.getDetailsBean().getName());
+            catalogList.setAdapter(catalogAdapter);
+            catalogList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    mDialog.hide();
+                    catalogBean.setPiont(position);
+                    ReadHelper.create().read(CatalogActivity.this, catalogBean.getDetailsBean(), position);
+                }
+            });
+        } else {
+            mDialog.show();
+            catalogAdapter.notifyDataSetChanged();
         }
-        mDialog = new AlertDialog.Builder(this).create();
-        mDialog.show();
-        Window window = mDialog.getWindow();
-        window.setWindowAnimations(R.style.PopupAnimation);
-        View view = View.inflate(this, R.layout.view_reader_catalog_dialog, null);
-        mDialog.setContentView(view);
-        window = mDialog.getWindow();
-        window.setGravity(Gravity.BOTTOM);
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);//设置横向全屏
-        mDialog.setCanceledOnTouchOutside(true);
-        mDialog.setCancelable(true);
-        final ListView catalogList = (ListView) mDialog.findViewById(R.id.reader_catalog_list_rv);
-        ReadChapterAdapter adapter = new ReadChapterAdapter(this, catalogBean.getPiont(), catalogBean.getDetailsBean().getChapterList(), catalogBean.getDetailsBean().getName());
-        catalogList.setAdapter(adapter);
-        catalogList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                catalogBean.setPiont(position);
-                ReadHelper.create().read(CatalogActivity.this, catalogBean.getDetailsBean(), position);
-            }
-        });
 
     }
 }

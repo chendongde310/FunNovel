@@ -21,6 +21,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':noveldata')
+    //对话框
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
@@ -28,7 +29,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:support-v13:25.3.1'
     compile 'com.afollestad.material-dialogs:core:0.8.5.9'
-    //对话框
     compile 'com.azoft.carousellayoutmanager:carousel:1.2.1'
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'com.alibaba:fastjson:1.2.24'

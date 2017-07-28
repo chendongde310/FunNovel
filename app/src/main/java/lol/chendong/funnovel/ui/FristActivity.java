@@ -10,10 +10,8 @@ import lol.chendong.funnovel.BaseActivity;
 import lol.chendong.funnovel.R;
 import lol.chendong.funnovel.ReadHelper;
 import lol.chendong.noveldata.ContentData;
-import lol.chendong.noveldata.RandomData;
 import lol.chendong.noveldata.SearchData;
 import lol.chendong.noveldata.bean.NovelContentBean;
-import lol.chendong.noveldata.bean.NovelDetailsBean;
 import lol.chendong.noveldata.bean.NovelSearchBean;
 import rx.Observer;
 import rx.Subscriber;
@@ -31,30 +29,11 @@ public class FristActivity extends BaseActivity {
             @Override
             public void run() {
                 ReadHelper.create().bookcase(FristActivity.this);
-                getRandom();
                 finish();
             }
         }, 0);
     }
 
-    private void getRandom() {
-        RandomData.create(1).getRandomNovel().subscribe(new Subscriber<List<NovelDetailsBean>>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(List<NovelDetailsBean> novelDetailsBeen) {
-                ReadHelper.create().catalog(FristActivity.this, novelDetailsBeen.get(0));
-            }
-        });
-    }
 
     @Override
     public void initListener() {
