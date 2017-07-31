@@ -36,12 +36,11 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.CatalogActivity"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/AppTheme" />
         <activity android:name=".ui.SearchActivity" />
         <activity
             android:name=".ui.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

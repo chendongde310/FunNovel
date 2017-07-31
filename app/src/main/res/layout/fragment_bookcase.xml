@@ -13,6 +13,8 @@
         android:background="@color/reader_catalog_text_present"
         android:gravity="start|center"
         android:paddingEnd="13dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:paddingStart="13dp"
         android:visibility="gone"
         android:textColor="@color/white"

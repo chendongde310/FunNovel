@@ -129,7 +129,6 @@
     <orderEntry type="library" exported="" name="animated-vector-drawable-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="hawk-2.0.1" level="project" />
     <orderEntry type="module" module-name="noveldata" exported="" />
-    <orderEntry type="library" exported="" name="android-android-25" level="project" />
     <orderEntry type="library" exported="" name="jsoup-1.10.1" level="project" />
     <orderEntry type="library" exported="" name="rxjava-1.2.4" level="project" />
   </component>

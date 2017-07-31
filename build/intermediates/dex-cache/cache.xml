@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="D:\workspace\FunNovel\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/chen/myApp/FunNovel/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57adbaffb9f58d372ec467cfcd77ade90f53032d">
+        <dex dex="/Users/chen/myApp/FunNovel/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3852368a2a72a74f32dd4b6a3d1b085b0d2831ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/chen/myApp/FunNovel/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3b188fb8405dbf2c3177f18be61b04f589d0ee80\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\workspace\FunNovel\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="42ccd6e08a77013c808bc980a9b9f14b4a4f977b">
-        <dex dex="D:\workspace\FunNovel\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d8b2edf3c7fa4ad2aa32d72c7cc898cc995e6523\classes.dex" />
+        <dex dex="/Users/chen/myApp/FunNovel/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5181f19a445807d47369370931d8be1f7b5b3323/classes.dex" />
     </item>
 
 </items>

@@ -32,6 +32,7 @@ import lol.chendong.funnovel.data.BookcaseHelper;
  * ▎更新内容：
  * ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
  */
+@Deprecated
 public class BookcaseActivity extends BaseActivity {
 
     private android.widget.ImageView mBookcaseposterimg;

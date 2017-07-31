@@ -1,17 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:paddingTop="@dimen/appbar_padding_top" />
+
+
+        <ImageView
+            android:id="@+id/user_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="13dp"
+            android:src="@drawable/ic_action_name" />
+
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/user_icon"
+            android:paddingBottom="8dp"
+            android:paddingTop="13dp"
+
+            android:src="@drawable/ic_action_search" />
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="#d7d7d7" />
 
 
     <android.support.v4.view.ViewPager
@@ -21,4 +59,4 @@
         android:layout_below="@+id/tabs" />
 
 
-</RelativeLayout>
+</LinearLayout>

@@ -55,7 +55,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void setData() {
-        Glide.with(CatalogActivity.this).load(novelDetailsBean.getImgUrl()).into(catalogposterimg);
+        Glide.with(CatalogActivity.this).load(novelDetailsBean.getImgUrl()).centerCrop().into(catalogposterimg);
         catalogdescribe.setText(String.format("      %s", novelDetailsBean.getDescribe().trim()));
         catalogupdataTime.setText(String.format("最后更新：%s", novelDetailsBean.getUpdataTime()));
         catalogauthor.setText(String.format("作者：%s", novelDetailsBean.getAuthor()));

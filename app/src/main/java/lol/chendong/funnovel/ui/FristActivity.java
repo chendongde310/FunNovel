@@ -31,7 +31,10 @@ public class FristActivity extends BaseActivity {
                 ReadHelper.create().bookcase(FristActivity.this);
                 finish();
             }
-        }, 0);
+        }, 1000);
+
+
+
     }
 
 

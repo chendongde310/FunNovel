@@ -4,7 +4,6 @@
     android:id="@+id/activity_catalog_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="25dp"
     android:animateLayoutChanges="true"
     android:background="@color/white"
     tools:context="lol.chendong.funnovel.ui.CatalogActivity">

@@ -13,8 +13,8 @@ public class NovelListBean implements Parcelable {
     private String type; //类型
     private String name; //名字
     private String newChapter; //最新章节
-    private String author; //作者
-    private String data; //日期
+    private String author = "佚名"; //作者
+    private String data = "刚刚"; //日期
     private String catalogUrl; //详情地址
     private String newUrl; //最新章节地址
 
@@ -115,4 +115,17 @@ public class NovelListBean implements Parcelable {
             return new NovelListBean[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "NovelListBean{" +
+                "type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", newChapter='" + newChapter + '\'' +
+                ", author='" + author + '\'' +
+                ", data='" + data + '\'' +
+                ", catalogUrl='" + catalogUrl + '\'' +
+                ", newUrl='" + newUrl + '\'' +
+                '}';
+    }
 }
