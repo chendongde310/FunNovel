@@ -65,7 +65,7 @@ public class ReadChapterAdapter extends BaseAdapter {
         }
         viewHolder.textView.setText(list.get(position).getChapterName());
         viewHolder.textView.setTextColor(context.getResources().getColor(R.color.reader_catalog_text_defult));
-        if(piont != -1 ){
+        if(piont >=0 ){
             if(piont == position){
                 viewHolder.textView.setTextColor(context.getResources().getColor(R.color.reader_catalog_text_present));
             }

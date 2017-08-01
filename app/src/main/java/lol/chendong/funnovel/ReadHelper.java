@@ -1,11 +1,13 @@
 package lol.chendong.funnovel;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
 import java.util.List;
 
+import dmax.dialog.SpotsDialog;
 import lol.chendong.funnovel.bean.BookcaseBean;
 import lol.chendong.funnovel.bean.CatalogBean;
 import lol.chendong.funnovel.bean.ReadBean;
@@ -35,7 +37,7 @@ import rx.Subscriber;
  */
 public class ReadHelper {
     private static ReadHelper reader;
-
+    AlertDialog dialog;
 
     private ReadHelper() {
 
@@ -77,17 +79,20 @@ public class ReadHelper {
      * @param bookcaseBean
      */
     public void read(final Context context, final BookcaseBean bookcaseBean) {
-
+        showDialog(context);
         ContentData.create(bookcaseBean.getDetailsBean().getChapterList().get(bookcaseBean.getPiont())).getContent()
                 .subscribe(new Subscriber<NovelContentBean>() {
                     @Override
                     public void onCompleted() {
-
+                        if(dialog!=null)
+                        dialog.dismiss();
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
+                        if(dialog!=null)
+                        dialog.dismiss();
                     }
 
                     @Override
@@ -101,6 +106,12 @@ public class ReadHelper {
         read(context, new ReadBean(novelContentBean, detailsBean, postion));
     }
 
+    public void showDialog(Context context ){
+        dialog = new SpotsDialog(context);
+        dialog.show();
+
+    }
+
     /***
      * 从目录页过来
      *
@@ -108,16 +119,20 @@ public class ReadHelper {
      * @param postion
      */
     public void read(final Context context, final NovelDetailsBean detailsBean, final int postion) {
+        showDialog(context);
         ContentData.create(detailsBean.getChapterList().get(postion)).getContent()
                 .subscribe(new Observer<NovelContentBean>() {
                     @Override
                     public void onCompleted() {
-
+                        if(dialog!=null)
+                            dialog.dismiss();
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
+                        if(dialog!=null)
+                            dialog.dismiss();
                     }
 
                     @Override
@@ -133,15 +148,19 @@ public class ReadHelper {
      * @param novelContentBean
      */
     public void read(final Context context, final NovelContentBean novelContentBean) {
+        showDialog(context);
         CatalogData.create(novelContentBean).getNovelDetail().subscribe(new Subscriber<NovelDetailsBean>() {
             @Override
             public void onCompleted() {
-
+                if(dialog!=null)
+                    dialog.dismiss();
             }
 
             @Override
             public void onError(Throwable e) {
                 e.printStackTrace();
+                if(dialog!=null)
+                    dialog.dismiss();
             }
 
             @Override
@@ -188,15 +207,19 @@ public class ReadHelper {
 
 
     public void catalog(final Context context, String catalogUrl) {
+        showDialog(context);
         CatalogData.create(catalogUrl).getNovelDetail().subscribe(new Subscriber<NovelDetailsBean>() {
             @Override
             public void onCompleted() {
-
+                if(dialog!=null)
+                    dialog.dismiss();
             }
 
             @Override
             public void onError(Throwable e) {
                 e.printStackTrace();
+                if(dialog!=null)
+                    dialog.dismiss();
             }
 
             @Override
@@ -213,15 +236,19 @@ public class ReadHelper {
             catalogBean.setDetailsBean(detailsBean);
             catalog(context, catalogBean);
         } else {
+            showDialog(context);
             CatalogData.create(detailsBean).getNovelDetail().subscribe(new Subscriber<NovelDetailsBean>() {
                 @Override
                 public void onCompleted() {
-
+                    if(dialog!=null)
+                        dialog.dismiss();
                 }
 
                 @Override
                 public void onError(Throwable e) {
                     e.printStackTrace();
+                    if(dialog!=null)
+                        dialog.dismiss();
                 }
 
                 @Override

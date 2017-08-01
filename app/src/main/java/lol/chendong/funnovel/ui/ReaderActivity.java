@@ -33,7 +33,12 @@ import lol.chendong.noveldata.ContentData;
 import lol.chendong.noveldata.bean.NovelContentBean;
 import rx.Observer;
 
-
+/**
+ *
+ * 作者：陈东
+ * 日期：2017/8/1 0001 - 19:34
+ * todo-预加载下一章
+ */
 public class ReaderActivity extends BaseActivity {
 
     private static final int UI_ANIMATION_DELAY = 300;

@@ -24,6 +24,7 @@ import rx.schedulers.Schedulers;
 public class ContentData {
     private NovelContentBean contentBean;
     private String this_url;
+    private int TimeOut = 1000 * 15;
 
     private ContentData(NovelContentBean contentBean) {
         this.contentBean = contentBean;
@@ -31,7 +32,8 @@ public class ContentData {
     }
 
     /**
-     *创建内容页数据
+     * 创建内容页数据
+     *
      * @param chapter 章节对象
      * @return
      */
@@ -41,7 +43,8 @@ public class ContentData {
     }
 
     /**
-     *创建内容页数据
+     * 创建内容页数据
+     *
      * @param contentBean 内容页对象
      * @return
      */
@@ -52,6 +55,7 @@ public class ContentData {
 
     /**
      * 创建内容页数据，不要直接使用这个方法创建
+     *
      * @param url 内容页地址
      * @return
      */
@@ -72,7 +76,6 @@ public class ContentData {
         return getContent();
     }
 
-
     /**
      * 获取上章内容,通过 create(NovelContentBean contentBean)创建才可调用
      *
@@ -82,9 +85,6 @@ public class ContentData {
         this_url = contentBean.getLastUrl();
         return getContent();
     }
-
-    private int TimeOut = 1000*15;
-
 
     /**
      * 获取本章内容
@@ -96,7 +96,7 @@ public class ContentData {
         return Observable.create(new Observable.OnSubscribe<NovelContentBean>() {
             @Override
             public void call(Subscriber<? super NovelContentBean> subscriber) {
-                if(this_url == null){
+                if (this_url == null) {
                     subscriber.onError(new NullPointerException("url is null"));
                 }
                 try {
@@ -110,15 +110,15 @@ public class ContentData {
                     novelContentBean.setNextUrl(this_url);
                     String last = index.getElementById("pager_prev").attr("href");
                     String next = index.getElementById("pager_next").attr("href");
-                    if(!"./".equals(last)){
+                    if (!"./".equals(last)) {
                         novelContentBean.setLastUrl(url + last);
                     }
-                    if(!"./".equals(next)){
+                    if (!"./".equals(next)) {
                         novelContentBean.setNextUrl(url + next);
                     }
                     Element content = index.getElementById("content");
                     String contentText = content.html();
-                    novelContentBean.setContent(contentText.replace("chaptererror();"," "));
+                    novelContentBean.setContent(filter(contentText));
                     subscriber.onNext(novelContentBean);
                     subscriber.onCompleted();
                 } catch (IOException e) {
@@ -129,8 +129,19 @@ public class ContentData {
                 .subscribeOn(Schedulers.newThread());
     }
 
+
+    /**
+     * TODO- 新增过滤规则库
+     * @param contentText
+     * @return
+     */
+    private String filter(String contentText) {
+        return contentText.replace("chaptererror();", " ");
+    }
+
     /**
      * 截取链接
+     *
      * @param url
      * @return
      */

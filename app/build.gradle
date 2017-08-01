@@ -34,4 +34,5 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.24'
     compile 'com.orhanobut:hawk:2.0.1'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile 'com.github.d-max:spots-dialog:0.7@aar'
 }

@@ -16,7 +16,7 @@ public class CatalogBean implements Parcelable {
     private NovelDetailsBean detailsBean; // 小说详情
 
     public int getPiont() {
-        return piont;
+        return piont<0?0:piont;
     }
 
     public void setPiont(int piont) {
