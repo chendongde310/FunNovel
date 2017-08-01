@@ -56,7 +56,7 @@ public class SearchAdapter extends BaseAdapter {
         ImageView catalogposterimg = (ImageView) convertView.findViewById(R.id.search_poster_img);
         TextView catalognewType = (TextView) convertView.findViewById(R.id.search_type);
         NovelSearchBean bean = datas.get(position);
-        Glide.with(context).load(bean.getImgUrl()).into(catalogposterimg);
+        Glide.with(context).load(bean.getImgUrl()).centerCrop().into(catalogposterimg);
         catalogupdataTime.setText(String.format("最后更新：%s", bean.getUpdataTime()));
         catalogauthor.setText(String.format("作者：%s", bean.getAuthor()));
         catalogtitle.setText(bean.getName());

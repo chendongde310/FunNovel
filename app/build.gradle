@@ -33,4 +33,5 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'com.alibaba:fastjson:1.2.24'
     compile 'com.orhanobut:hawk:2.0.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
 }

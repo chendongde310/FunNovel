@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/chen/.android/build-cache/ffe8c7aaf84acd217aa8f6c121b3c3f19418168e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b7219f056e3abdba2d60d235b2593dff1928c3ae">
+        <dex dex="/Users/chen/myApp/FunNovel/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f62064688d17565dac2adb0d387317132b112969/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/chen/myApp/FunNovel/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"

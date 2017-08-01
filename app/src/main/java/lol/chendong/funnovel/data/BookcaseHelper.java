@@ -12,8 +12,6 @@ import java.util.Map;
 import lol.chendong.funnovel.bean.BookcaseBean;
 import lol.chendong.funnovel.bean.ReadBean;
 
-import static com.orhanobut.hawk.Hawk.get;
-
 /**
  * ▎作者：此屁天下之绝响
  * ▎Github:www.github.com/chendongde310
@@ -25,12 +23,14 @@ public class BookcaseHelper {
 
 
     private static BookcaseHelper helper;
+    ReadBean lateBook;
     private String mBookcaseListName = "Novel_BookcaseList";
     private String mLateBook = "Novel_LateBook";
     private Map<String, BookcaseBean> bookcases = new HashMap<>();
 
     public BookcaseHelper() {
         bookcases.putAll(Hawk.get(mBookcaseListName, new HashMap<String, BookcaseBean>()));
+        lateBook = Hawk.get(mLateBook);
     }
 
     public static BookcaseHelper BookCase() {
@@ -43,7 +43,6 @@ public class BookcaseHelper {
     public Map<String, BookcaseBean> map() {
         return bookcases;
     }
-
 
     public boolean putBookcases(BookcaseBean newData, Context context) {
         if (bookcases.containsKey(newData.getDetailsBean().getCatalogUrl())) {
@@ -61,11 +60,9 @@ public class BookcaseHelper {
         }
     }
 
-
     public boolean putBookcases(BookcaseBean newData) {
         return putBookcases(newData, null);
     }
-
 
     /**
      * 判断是否收藏过
@@ -92,12 +89,14 @@ public class BookcaseHelper {
     }
 
     public void putLateBook(ReadBean readBean) {
+        lateBook = readBean;
+        update(readBean);
         Hawk.put(mLateBook, readBean);
     }
 
-
     public ReadBean getLateBook() {
-        return get(mLateBook);
+        Hawk.get(mLateBook);
+        return lateBook;
     }
 
     public void remove(BookcaseBean bookcaseBean) {
@@ -115,6 +114,15 @@ public class BookcaseHelper {
 
     public int size() {
         return bookcases.size();
+    }
+
+
+    public void update(ReadBean readBean) {
+        BookcaseBean newData = new BookcaseBean();
+        newData.setPiont(readBean.getPiont());
+        newData.setDetailsBean(readBean.getDetailsBean());
+        bookcases.put(readBean.getDetailsBean().getCatalogUrl(), newData);
+        save();
     }
 
 

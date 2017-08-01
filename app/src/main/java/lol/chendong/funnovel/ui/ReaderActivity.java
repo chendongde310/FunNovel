@@ -133,7 +133,6 @@ public class ReaderActivity extends BaseActivity {
 
             @Override
             public void onNext(NovelContentBean novelContentBean) {
-                readBean.setPiont(readBean.getPiont() + 1);
                 readBean.setContent(novelContentBean);
                 BookcaseHelper.BookCase().putLateBook(readBean);
                 mContentView.setContent(readBean.getContent().getTitle(), readBean.getContent().getContent());

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -47,6 +48,8 @@ public class BookcaseAdapter extends RecyclerView.Adapter<BookcaseAdapter.Bookca
             BookcaseBean data = bookcaseBeens.get(position);
             holder.mBookcaseName.setText(data.getDetailsBean().getName());
             Glide.with(context).load(data.getDetailsBean().getImgUrl()).centerCrop().into(holder.mBookcaseImg);
+            holder.progress.setMax(data.getDetailsBean().getChapterList().size());
+            holder.progress.setProgress(data.getPiont());
         }
     }
 
@@ -79,8 +82,9 @@ public class BookcaseAdapter extends RecyclerView.Adapter<BookcaseAdapter.Bookca
 
     public class BookcaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
-        public ImageView mBookcaseImg;
-        public TextView mBookcaseName;
+        ImageView mBookcaseImg;
+        TextView mBookcaseName;
+        ProgressBar progress;
         private onItemClickListener mListener;
         private onItemLongClickListener mLongClickListener;
 
@@ -90,6 +94,8 @@ public class BookcaseAdapter extends RecyclerView.Adapter<BookcaseAdapter.Bookca
             mLongClickListener = longClickListener;
             mBookcaseImg = (ImageView) itemView.findViewById(R.id.bookcase_poster_img);
             mBookcaseName = (TextView) itemView.findViewById(R.id.bookcase_poster_name);
+            progress = (ProgressBar) itemView.findViewById(R.id.progressBar);
+
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }

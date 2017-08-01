@@ -1,6 +1,7 @@
 package lol.chendong.funnovel.ui;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
@@ -38,6 +39,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
     private ImageView catalogaddCollect;
     private ImageView catalogshowCatalog;
     private ImageView catalogaddComment;
+    private FloatingActionButton fab;
     private AlertDialog mDialog;
 
     @Override
@@ -77,6 +79,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
         this.catalogaddComment = (ImageView) findViewById(R.id.catalog_addComment);
         this.catalogshowCatalog = (ImageView) findViewById(R.id.catalog_showCatalog);
         this.catalogaddCollect = (ImageView) findViewById(R.id.catalog_addCollect);
+        this.fab = (FloatingActionButton) findViewById(R.id.fab);
         setData();
 
         if (BookcaseHelper.BookCase().isContains(novelDetailsBean.getCatalogUrl())) {
@@ -91,6 +94,7 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
         catalogshowCatalog.setOnClickListener(this);
         catalogaddComment.setOnClickListener(this);
         catalognewChapter.setOnClickListener(this);
+        fab.setOnClickListener(this);
     }
 
     /**
@@ -116,6 +120,9 @@ public class CatalogActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.catalog_newChapter:
                 ReadHelper.create().read(CatalogActivity.this, catalogBean.getDetailsBean(), catalogBean.getDetailsBean().getChapterList().size() - 1);
+                break;
+            case R.id.fab:
+                ReadHelper.create().read(CatalogActivity.this, catalogBean.getDetailsBean(), catalogBean.getPiont());
                 break;
 
         }

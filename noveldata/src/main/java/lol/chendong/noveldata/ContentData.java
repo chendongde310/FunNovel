@@ -118,7 +118,6 @@ public class ContentData {
                     }
                     Element content = index.getElementById("content");
                     String contentText = content.html();
-                    Logger.d(contentText);
                     novelContentBean.setContent(contentText.replace("chaptererror();"," "));
                     subscriber.onNext(novelContentBean);
                     subscriber.onCompleted();

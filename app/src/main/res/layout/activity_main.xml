@@ -28,7 +28,7 @@
             android:layout_marginEnd="10dp"
             android:paddingBottom="8dp"
             android:paddingTop="13dp"
-            android:src="@drawable/ic_action_name" />
+            android:src="@drawable/ic_user" />
 
 
         <ImageView

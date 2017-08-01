@@ -1,6 +1,5 @@
 package lol.chendong.funnovel;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -36,8 +35,7 @@ import rx.Subscriber;
  */
 public class ReadHelper {
     private static ReadHelper reader;
-    Activity readerActivity;
-    private NovelContentBean novelContentBean; //
+
 
     private ReadHelper() {
 
@@ -57,11 +55,10 @@ public class ReadHelper {
      * @return
      */
     public void read(Context context, NovelContentBean novelContentBean, NovelDetailsBean detailsBean) {
-        this.novelContentBean = novelContentBean;
         ReadBean readBean = new ReadBean();
         readBean.setContent(novelContentBean);
         readBean.setDetailsBean(detailsBean);
-        readBean.setPiont(-1);
+        readBean.setPiont(0);
         read(context, readBean);
     }
 
@@ -212,7 +209,7 @@ public class ReadHelper {
     public void catalog(final Context context, NovelDetailsBean detailsBean) {
         if (detailsBean.getChapterList() != null) {
             CatalogBean catalogBean = new CatalogBean();
-            catalogBean.setPiont(-1);
+            catalogBean.setPiont(0);
             catalogBean.setDetailsBean(detailsBean);
             catalog(context, catalogBean);
         } else {
@@ -272,17 +269,6 @@ public class ReadHelper {
     public void catalog(Context context, NovelSearchBean novelSearchBean) {
         catalog(context, novelSearchBean.getCatalogUrl());
     }
-
-
-    public void re(Activity activity) {
-        if (this.readerActivity != null) {
-            this.readerActivity.finish();
-        }
-
-        this.readerActivity = activity;
-    }
-
-
 
 }
 
