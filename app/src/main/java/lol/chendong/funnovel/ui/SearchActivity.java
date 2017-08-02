@@ -1,18 +1,21 @@
 package lol.chendong.funnovel.ui;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.orhanobut.logger.Logger;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import dmax.dialog.SpotsDialog;
 import lol.chendong.funnovel.BaseActivity;
 import lol.chendong.funnovel.R;
 import lol.chendong.funnovel.ReadHelper;
@@ -31,10 +34,11 @@ import rx.Subscriber;
 public class SearchActivity extends BaseActivity {
 
     SearchAdapter adapter;
+    String searchText = "";
+    AlertDialog dialog;
     private SearchView mSearchView;
-    private ListView mRecyclerView;
+    private RecyclerView mRecyclerView;
     private int index = 0;
-    private List<NovelSearchBean> datas;
 
     /**
      * 关闭软键盘
@@ -59,7 +63,7 @@ public class SearchActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        datas = new ArrayList<>();
+
     }
 
     @Override
@@ -69,11 +73,13 @@ public class SearchActivity extends BaseActivity {
         mSearchView.setIconified(false);
         mSearchView.onActionViewExpanded();
 //          mSearchView.setQueryHint("搜索书名");
-        mRecyclerView = (ListView) findViewById(R.id.search_list);
-        // mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new SearchAdapter(this, datas);
+        mRecyclerView = (RecyclerView) findViewById(R.id.search_list);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new SearchAdapter();
         mRecyclerView.setAdapter(adapter);
-        mRecyclerView.setEmptyView(View.inflate(this, R.layout.view_empty, null));
+        adapter.setEmptyView(View.inflate(this, R.layout.view_empty, null));
+        adapter.openLoadAnimation();
+        adapter.setPreLoadNumber(6);
     }
 
     @Override
@@ -87,43 +93,68 @@ public class SearchActivity extends BaseActivity {
             @Override
             public boolean onQueryTextSubmit(String queryText) {
                 Logger.d("搜索" + queryText);
+                searchText = queryText;
                 closeKeybord(mSearchView, SearchActivity.this); // 关闭软键盘
                 mSearchView.clearFocus(); // 不获取焦点
                 index = 0;
-                getSearch(queryText);
+                getSearch(searchText);
                 return true;
             }
         });
 
-        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ReadHelper.create().catalog(SearchActivity.this, datas.get(position));
+            public void onLoadMoreRequested() {
+                index++;
+                getSearch(searchText);
+            }
+        }, mRecyclerView);
+
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+                ReadHelper.create().catalog(SearchActivity.this, (NovelSearchBean) baseQuickAdapter.getData().get(i));
             }
         });
+
     }
 
-
     private void getSearch(String search) {
+        if (TextUtils.isEmpty(search)) {
+            return;
+        }
+        if (index == 0) {
+            dialog = new SpotsDialog(this);
+            dialog.show();
+            dialog.setMessage("搜索中");
+        }
         SearchData.create(search).getSearchData(index).subscribe(new Subscriber<List<NovelSearchBean>>() {
             @Override
             public void onCompleted() {
-                index++;
+                adapter.loadMoreComplete();
+                if (dialog != null)
+                    dialog.dismiss();
             }
 
             @Override
             public void onError(Throwable e) {
-                datas.clear();
-                adapter.notifyDataSetChanged();
+                e.printStackTrace();
+                if (dialog != null)
+                    dialog.dismiss();
             }
 
             @Override
             public void onNext(List<NovelSearchBean> novelSearchBeen) {
                 if (index == 0) {
-                    datas.clear();
+                    mRecyclerView.scrollToPosition(0);
+                    adapter.setNewData(novelSearchBeen);
                 }
-                datas.addAll(novelSearchBeen);
-                adapter.notifyDataSetChanged();
+                if (novelSearchBeen.size() == 0) {
+                    adapter.loadMoreEnd();
+                } else {
+                    adapter.addData(novelSearchBeen);
+                }
+
             }
         });
     }

@@ -109,7 +109,7 @@ public class ReadHelper {
     public void showDialog(Context context ){
         dialog = new SpotsDialog(context);
         dialog.show();
-
+        dialog.setMessage("加载中");
     }
 
     /***

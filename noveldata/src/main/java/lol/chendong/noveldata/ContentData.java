@@ -136,7 +136,7 @@ public class ContentData {
      * @return
      */
     private String filter(String contentText) {
-        return contentText.replace("chaptererror();", " ");
+        return contentText.replace("chaptererror();", " ").replace("武动乾坤","");
     }
 
     /**
