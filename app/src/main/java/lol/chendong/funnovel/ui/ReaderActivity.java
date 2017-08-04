@@ -292,6 +292,7 @@ public class ReaderActivity extends BaseActivity {
         mDialog.setCancelable(true);
         catalogList = (ListView) mDialog.findViewById(R.id.reader_catalog_list_rv);
         adapter = new ReadChapterAdapter(ReaderActivity.this, readBean);
+        catalogList.smoothScrollToPosition(readBean.getPiont());
         catalogList.setAdapter(adapter);
         catalogList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
